@@ -1,0 +1,49 @@
+﻿@model Foodweb.Models.Role
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+
+<div class="row">
+    <div class="col-md-3">  </div>
+
+    <div class="col-md-6">
+
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Thêm mới quyền truy cập</h3>
+            </div>
+            <!-- /.card-header -->
+            <!-- form start -->
+            <form asp-action="Create">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="Name">Tên quyền truy cập</label>
+                        <input asp-for="RoleName" class="form-control" />
+                    </div>
+
+
+
+
+                    <!-- /.card-body -->
+
+                    <div class="card-footer">
+                        <input type="submit" value="Thêm mới" class="btn btn-primary" />
+                        <a class="btn btn-secondary" asp-area="Admin" asp-controller="Roles" asp-action="Index">Back</a>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <div class="col-md-3">  </div>
+
+</div>
+
+
+

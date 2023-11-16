@@ -1,0 +1,125 @@
+﻿@model Foodweb.Models.Product
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<div class="row">
+    <div class="col-md-3">  </div>
+
+    <div class="col-md-6">
+
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Sửa thông tin món</h3>
+            </div>
+            <!-- /.card-header -->
+            <!-- form start -->
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+               
+                <div class="card-body">
+                    <input type="hidden" asp-for="ProId" />
+                    <div class="form-group">
+                        <label for="ProName">Tên món</label>
+                        <input asp-for="ProName" class="form-control" />
+                        <span asp-validation-for="ProName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="ShortDesc">ShortDesc</label>
+                        <input asp-for="ShortDesc" class="form-control" />
+                        <span asp-validation-for="ShortDesc" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Price">Giá</label>
+                        <input asp-for="Price" class="form-control" />
+                        <span asp-validation-for="Price" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="Price">Giảm giá</label>
+                        <input asp-for="Discout" class="form-control" />
+                        <span asp-validation-for="Discout" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="CateId">Loại món</label>
+                        
+                        <select asp-for="CateId" class="form-control" asp-items="ViewBag.CateId"></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="CreateDate">Ngày thêm</label>
+                        <input asp-for="CreateDate" class="form-control" />
+                        <span asp-validation-for="CreateDate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="ModifiedDate">ModifiedDate</label>
+                        <input asp-for="ModifiedDate" class="form-control" />
+                        <span asp-validation-for="ModifiedDate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="MetaKey">MetaKey</label>
+                        <input asp-for="MetaKey" class="form-control" />
+                        <span asp-validation-for="MetaKey" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="MetaDesc">MetaDesc</label>
+                        <input asp-for="MetaDesc" class="form-control" />
+                        <span asp-validation-for="MetaDesc" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="Bestseller">Bán chạy</label>
+                        <input asp-for="BestSeller" class="form-control" />
+                        <span asp-validation-for="BestSeller" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+
+                        <label for="Thumb">Ảnh minh họa</label>
+                        <td style="max-width: 100px;">
+                            <img src="@Url.Content("~/images/products/" + Model.Thumb)" alt="Ảnh món" style="max-width: 50%; height: auto;" />
+                        </td>
+                        <input name="eThumb" asp-for="Thumb" type="file" class="form-control-file" />
+                        <span asp-validation-for="Thumb" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="Active">Active</label>
+                        <input asp-for="Active" class="form-control" />
+                        <span asp-validation-for="Active" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="Title">Title</label>
+                        <input asp-for="Title" class="form-control" />
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+
+
+
+
+                    <!-- /.card-body -->
+
+                    <div class="card-footer">
+                        <input type="submit" value="Save" class="btn btn-primary" />
+                        <a class="btn btn-secondary" asp-action="Index">Back</a>
+
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+    <div class="col-md-3">  </div>
+
+</div>
+<script>
+    document.getElementById('newImage').addEventListener('change', function () {
+        var file = this.files[0];
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            document.getElementById('previewImage').src = e.target.result;
+        }
+        reader.readAsDataURL(file);
+    });
+</script>

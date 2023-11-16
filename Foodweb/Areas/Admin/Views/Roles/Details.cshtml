@@ -1,0 +1,31 @@
+﻿@model Foodweb.Models.Role
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<style>
+    .table td:first-child {
+        width: 200px; /* Đặt kích thước tối thiểu cho cột đầu tiên (ở đây là 100px) */
+    }
+</style>
+
+<h3>Thông tin quyền truy cập</h3>
+<div class="card-body">
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <td>ID:</td>
+                <td>@Model.RoleId</td>
+            </tr>
+            <tr>
+                <td>Tên quyền truy cập:</td>
+                <td>@Model.RoleName</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div>
+    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@Model.RoleId">Edit</a>
+    <a asp-action="Index" class="btn btn-secondary">Back</a>
+</div>

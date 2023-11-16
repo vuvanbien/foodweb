@@ -1,0 +1,52 @@
+﻿@model Foodweb.Models.Category
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-3">  </div>
+
+    <div class="col-md-6">
+
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Thêm Loại món</h3>
+            </div>
+            <!-- /.card-header -->
+            <!-- form start -->
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="CateId" class="control-label">Mã loại món</label>
+                    <input asp-for="CateId" class="form-control" />
+                    <span asp-validation-for="CateId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CateName" class="control-label">Tên loại món</label>
+                    <input asp-for="CateName" class="form-control" />
+                    <span asp-validation-for="CateName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Sort" class="control-label">Mô tả</label>
+                    <input asp-for="Sort" class="form-control" />
+                    <span asp-validation-for="Sort" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CreateDate" class="control-label">Ngày thêm</label>
+                    <input asp-for="CreateDate" class="form-control" />
+                    <span asp-validation-for="CreateDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Thêm" class="btn btn-primary" />
+                    <a class="btn btn-secondary" asp-action="Index">Back</a>
+
+                </div>
+            </form>
+        </div>
+
+
+    </div>
+</div>
+
